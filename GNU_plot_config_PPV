@@ -1,0 +1,13 @@
+set terminal png
+set output "GNUplotOutput_PPV.png"
+set title 'Position'
+set xlabel 'x'
+set ylabel 'y'
+set xrange [-1:102]
+set yrange [-1:110]
+#set xrange [-1:12]
+#set yrange [-1:11]
+set tmargin 2
+plot "dataPPV.csv" using 1:2 with lines
+
+

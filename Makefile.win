@@ -1,0 +1,31 @@
+# Project: ProjetOS11
+# Makefile created by Embarcadero Dev-C++ 6.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o utilities.o
+LINKOBJ  = main.o utilities.o
+LIBS     = -L"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/lib" -L"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/include" -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/include" -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"E:/Stock dossier/Téléchargements/Logiciels/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = ProjetOS11.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = del /f /q
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN) 2>nul
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+utilities.o: utilities.cpp
+	$(CPP) -c utilities.cpp -o utilities.o $(CXXFLAGS)
